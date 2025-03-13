@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Sensor Data Dashboard</h1>
+        <h2 class="mt-4">Real-Time Data</h2>
+        
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="dataRows">
+                <tr id="Temperature">
+                    <td>Temperature</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="CO2Concentration">
+                    <td>CO2 Concentration</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="Humidity">
+                    <td>Humidity</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-4">Historical Data</h2>
+        <div class="form-group">
+            <label>Sensor Type:</label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sensorType" id="Temperature" value="Temperature">
+                <label class="form-check-label" for="Temperature">Temperature</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sensorType" id="CO2Concentration" value="CO2 Concentration">
+                <label class="form-check-label" for="CO2Concentration">CO2 Concentration</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sensorType" id="Humidity" value="Humidity">
+                <label class="form-check-label" for="Humidity">Humidity</label>
+            </div>
+            
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" class="form-control">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" class="form-control">
+        </div>
+        <button id="showData" class="btn btn-primary">Show Historical Data</button>
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="historicalData"></tbody>
+        </table>
+
+        <div class="alert alert-info mt-2" id="peakValue">Peak Value for Selected Time Period: N/A</div>
+        <div class="alert alert-info mt-2" id="averageValue">Average Value for Selected Time Period: N/A</div>
+
+        <div id="analysisResult" class="mt-4"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
